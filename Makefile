@@ -1,7 +1,7 @@
 stream:
 	ffmpeg \
-	-r 15 -f x11grab -s 1920x1080 -i :0.0 \
-	-c:v libx264    -pix_fmt yuv420p \
+	-r 30 -f x11grab -s 1920x1080 -i :0.0 \
+	-c:v libx264 -pix_fmt yuv420p \
 	-preset veryfast -tune zerolatency \
 	-bsf:v h264_mp4toannexb -b:v 5000k \
 	-bufsize 500k -f mpegts \
@@ -13,5 +13,5 @@ rpi-receiver:
 		omxplayer \
 		-b \
 		--live \
-		udp://0.0.0.0:8888; \
+		udp://0.0.0.0:9991; \
 	done"
